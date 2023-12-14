@@ -72,7 +72,7 @@ const Navbar = () => {
         {/* Navbar links for small screens  */}
         {status === true && (
           <div className="col-span-3 flex flex-row md:hidden">
-            <ul className="text-sm md:flex">
+            <ul className="text-sm">
               {links.map(({ id, link, name }) => (
                 <li
                   key={id}
