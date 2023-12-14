@@ -14,27 +14,16 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="bg-[#E8D9C6] ">
-          {/* For large screens  */}
-        <div
-            className="hidden 2xl:block border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
-            style={{
-              backgroundImage: 'url("/penLatest.png")',
-              backgroundSize: "contain",
-            }}
-          >
-            <Navbar />
-            <div>{children}</div>
-          </div>
-          {/* For md screens */}
+          {/* For md and large screens */}
           <div
-            className="hidden md:block 2xl:hidden border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
+            className="hidden md:block border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
             style={{
               backgroundImage: 'url("/penLatest.png")',
               backgroundSize: "contain",
             }}
           >
             <Navbar />
-            <div className="md:pt-[55px]">{children}</div>
+            <div className="md:pt-[55px] 2xl:pt-0">{children}</div>
           </div>
           {/* For sm screens */}
           <div
