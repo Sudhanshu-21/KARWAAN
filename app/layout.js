@@ -14,16 +14,40 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="bg-[#E8D9C6] ">
-          <div
-            className="bg-scroll bg-no-repeat bg-right-top "
+          {/* For large screens  */}
+        <div
+            className="hidden 2xl:block border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
             style={{
-              backgroundImage: 'url("/Pen.png")',
+              backgroundImage: 'url("/penLatest.png")',
+              backgroundSize: "contain",
+            }}
+          >
+            <Navbar />
+            <div>{children}</div>
+          </div>
+          {/* For md screens */}
+          <div
+            className="hidden md:block 2xl:hidden border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
+            style={{
+              backgroundImage: 'url("/penLatest.png")',
               backgroundSize: "contain",
             }}
           >
             <Navbar />
             <div className="md:pt-[55px]">{children}</div>
           </div>
+          {/* For sm screens */}
+          <div
+            className="md:hidden border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
+            style={{
+              backgroundImage: 'url("/penLatestCropSm.png")',
+              backgroundSize: "contain",
+            }}
+          >
+            <Navbar />
+            <div className="md:pt-[55px]">{children}</div>
+          </div>
+          {/* Newer sections to be added here (About mag, about KARWAAN, etc) */}
         </div>
       </body>
     </html>

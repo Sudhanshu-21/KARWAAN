@@ -33,17 +33,17 @@ const Navbar = () => {
 
   return (
     <div className="md:fixed md:z-50">
-      <div className=" grid grid-cols-12 text-white ps-[24px] md:pe-0 lg:pe-[24px] sm:pt-[10px] pt-[5px]">
+      <div className=" grid grid-cols-12 text-white ps-[24px] md:pe-0 lg:pe-[24px] md:pt-[10px]">
         {/* KARWAAN LOGO */}
         <div className="text-blue nav col-span-2 md:col-span-1">
           <img
-            src="/VNIT-Nagpur-logo.jpg"
+            src="/VNIT_logo-removebg-preview.png"
             className="border-0 border-sky-500 "
           ></img>
         </div>
         {/* Navbar links for md and large screens */}
         <div className="hidden pt-[10px] col-end-13 col-span-8 md:px-0 md:visible md:flex md:flex-row-reverse">
-          <ul className=" md:text-base md:flex lg:text-xl xl:text-3xl">
+          <ul className=" md:text-sm md:flex lg:text-base xl:text-xl 2xl:text-2xl">
             {links.map(({ id, link, name }) => (
               <li
                 key={id}
@@ -63,9 +63,9 @@ const Navbar = () => {
             onClick={() => statusUpdate()}
           >
             <div className="flex flex-col">
-              <div className="rounded-md border-[3px] min-w-[30px] m-[2px] me-[22px] border-white"></div>
-              <div className="rounded-md border-[3px] min-w-[30px] m-[2px] me-[22px] border-white"></div>
-              <div className="rounded-md border-[3px] min-w-[30px] m-[2px] me-[22px] border-white"></div>
+              <div className="rounded-md border-[3px] min-w-[30px] mb-[2px] me-[22px] border-white"></div>
+              <div className="rounded-md border-[3px] min-w-[30px] mb-[2px] me-[22px] border-white"></div>
+              <div className="rounded-md border-[3px] min-w-[30px] mb-[2px] me-[22px] border-white"></div>
             </div>
           </button>
         </div>
