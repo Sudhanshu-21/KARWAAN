@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           <div
             className="hidden md:block border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
             style={{
-              backgroundImage: 'url("/penLatest.png")',
+              backgroundImage: 'url("/Home/penLatest.png")',
               backgroundSize: "contain",
             }}
           >
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
           <div
             className="md:hidden border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
             style={{
-              backgroundImage: 'url("/penLatestCropSm.png")',
+              backgroundImage: 'url("/Home/penLatestCropSm.png")',
               backgroundSize: "contain",
             }}
           >

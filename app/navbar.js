@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <div className="md:fixed md:z-50">
-      <div className=" grid grid-cols-12 text-white md:ps-[24px] 2xl:pe-[15px] md:pt-[10px]">
+      <div className=" grid grid-cols-12 text-white md:ps-[24px] 2xl:pe-[15px] md:pt-[0px]">
         {/* KARWAAN LOGO */}
         <div className="text-blue nav col-span-2 md:col-span-1">
           <img
@@ -42,7 +42,7 @@ const Navbar = () => {
           ></img>
         </div>
         {/* Navbar links for md and large screens */}
-        <div className="hidden pt-[10px] col-end-13 col-span-8 md:px-0 md:visible md:flex md:flex-row-reverse">
+        <div className="hidden pt-[10px] md:pt-2 lg:pt-[10px] col-end-13 col-span-8 md:px-0 md:visible md:flex md:flex-row-reverse">
           <ul className=" md:text-sm md:flex lg:text-base xl:text-xl 2xl:text-2xl">
             {links.map(({ id, link, name }) => (
               <li
