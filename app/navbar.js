@@ -35,9 +35,9 @@ const Navbar = () => {
     <div className="md:fixed md:z-50">
       <div className=" grid grid-cols-12 text-white md:ps-[24px] 2xl:pe-[15px] md:pt-[0px]">
         {/* KARWAAN LOGO */}
-        <div className="text-blue nav col-span-2 md:col-span-1">
+        <div className="text-blue nav row-span-2 col-span-2 md:col-span-1">
           <img
-            src="/VNIT_logo-removebg-preview.png"
+            src="/Home/VNIT_logo-removebg-preview.png"
             className="border-0 border-sky-500 "
           ></img>
         </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
             aria-expanded="false"
             onClick={() => statusUpdate()}
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col pt-6 sm:pt-8">
               <div className="rounded-md border-[3px] min-w-[30px] mb-[2px] me-[22px] border-white"></div>
               <div className="rounded-md border-[3px] min-w-[30px] mb-[2px] me-[22px] border-white"></div>
               <div className="rounded-md border-[3px] min-w-[30px] mb-[2px] me-[22px] border-white"></div>

@@ -1,24 +1,39 @@
+import FirstScreen from "./firstScreen";
+import EventsCarousel from "./eventsCarousel";
 import Navbar from "./navbar";
 
 function Home() {
   return (
     <>
-      <div className="relative grid grid-cols-12 gap-8">
-        <div className="border-0 border-sky-500 col-span-9 min-[335px]:col-span-10 md:col-span-8 md:col-start-2">
-          <img
-            src="/Home/rkNarayanWoBgWRYB.png"
-            className="xl:w-[90rem] xl:ps-0 xl:pt-12 border-0 border-green-500"
-          ></img>
-          <div className="absolute top-[75%] sm:top-[80%] lg:top-[75%] left-[45%] md:left-[43%] 2xl:left-[42%]  font-semibold">
-          <button className="-translate-x-1/2 -translate-y-1/2 border-[2px] border-black bg-[#B29B7E] hover:bg-[#876f52] hover:scale-105 hover:border-[3px] hover:shadow-lg px-2 py-1 md:px-4 2xl:px-6 2xl:py-2 mx-2 my-1 sm:mx-3 2xl:mx-5 rounded-sm md:rounded-md text-base sm:text-lg 2xl:text-4xl">
-            Events
-          </button>
-          <button className="-translate-x-1/2 -translate-y-1/2 border-[2px] border-black bg-[#B29B7E] hover:bg-[#876f52] hover:scale-105 hover:border-[3px] hover:shadow-lg px-2 py-1 md:px-4 2xl:px-6 2xl:py-2 mx-2 sm:mx-3 2xl:mx-5 my-1 rounded-sm md:rounded-md text-base sm:text-lg 2xl:text-4xl">
-            Speakers
-          </button></div>
-        </div>
+      {/* For md and large screens */}
+      <div
+        className="hidden md:block border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
+        style={{
+          backgroundImage: 'url("/Home/penLatest.png")',
+          backgroundSize: "contain",
+        }}
+      >
+        <Navbar />
+        <FirstScreen/>
       </div>
-      
+      {/* For sm screens */}
+      <div
+        className="md:hidden border-0 border-sky-500 bg-scroll bg-no-repeat bg-right-top "
+        style={{
+          backgroundImage: 'url("/Home/penLatestCropSm.png")',
+          backgroundSize: "contain",
+        }}
+      >
+        <Navbar />
+        <FirstScreen/>
+      </div>
+      {/* About Mag About Karwaan  */}
+        <div className="bg-[#B29B7E] h-[500px] text-2xl md:text-4xl xl:text-6xl">About Mag About Karwaan</div>
+      {/* Events EventsCarousel  */}
+      <EventsCarousel />
+      {/* Speakers  */}
+      <div className="bg-[#B29B7E] h-[500px] text-2xl md:text-4xl xl:text-6xl">Speakers</div>
+      {/* Newer sections to be added here (About mag, about KARWAAN, etc) */}
     </>
   );
 }
