@@ -92,7 +92,7 @@ function EventsCarousel() {
         <div className="mx-[10%] sm:mx-[20%] lg:mx-[10%] ">
           <div className="h-[60vh] sm:h-[80vh] flex justify-center">
             <Carousel
-              slide={false}
+              slideInterval={5000}
               pauseOnHover
               className="w-[80vw] sm:w-[70vw] md:w-[65vw] lg:w-[60vw] xl:w-[55vw] 2xl:w-[45vw]"
             >
