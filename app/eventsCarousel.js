@@ -1,9 +1,36 @@
 "use client";
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { Carousel, Card } from "flowbite-react";
 import EventCard from "./eventCard";
 function EventsCarousel() {
-  // Array for Event Details 
+  // Function to get height and width of screen
+  const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
+  const updateScreenSize = () => {
+    setScreenSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+  useEffect(() => {
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+    return () => {
+      window.removeEventListener("resize", updateScreenSize);
+    };
+  }, []);
+  // Customising height of carousel based on screen ration
+  var h = "h-[60vh]";
+
+  if (screenSize.height > screenSize.width) {
+    if (screenSize.height > 2 * screenSize.width) {
+      h = "h-[40vh]";
+    } else {
+      h = "h-[50vh]";
+    }
+  } else {
+    h = "h-[80vh]";
+  }
+  // Array for Event Details
   const event = [
     {
       id: 1,
@@ -21,7 +48,7 @@ function EventsCarousel() {
     },
     {
       id: 3,
-      img: "/vercel.svg",
+      img: "/img3.jpg",
       name: "Vaad-V-Vaad",
       content:
         "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
@@ -42,7 +69,7 @@ function EventsCarousel() {
     },
     {
       id: 6,
-      img: "/vercel.svg",
+      img: "/img3.jpg",
       name: "Pen Flow",
       content:
         "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
@@ -70,7 +97,7 @@ function EventsCarousel() {
     },
     {
       id: 10,
-      img: "/vercel.svg",
+      img: "/img3.jpg",
       name: "Surmay Sandhya",
       content:
         "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
@@ -90,14 +117,14 @@ function EventsCarousel() {
           Events
         </div>
         <div className="mx-[10%] sm:mx-[20%] lg:mx-[10%] ">
-          <div className="h-[60vh] sm:h-[80vh] flex justify-center">
+          <div className={`${h} flex justify-center`}>
             <Carousel
               slideInterval={5000}
               pauseOnHover
               className="w-[80vw] sm:w-[70vw] md:w-[65vw] lg:w-[60vw] xl:w-[55vw] 2xl:w-[45vw]"
             >
               {event.map(({ id, img, name, content }) => (
-                <EventCard key={id} img={img} name={name} content={content} />
+                <EventCard key={id} img={img} name={name} content={content} width={screenSize.width} height={screenSize.height} />
               ))}
             </Carousel>
           </div>
