@@ -1,6 +1,8 @@
 import FirstScreen from "./firstScreen";
 import EventsCarousel from "./eventsCarousel";
 import Navbar from "./navbar";
+import Speakers from "./speakers";
+import Glimpses from "./glimpses";
 
 function Home() {
   return (
@@ -14,7 +16,7 @@ function Home() {
         }}
       >
         <Navbar />
-        <FirstScreen/>
+        <FirstScreen />
       </div>
       {/* For sm screens */}
       <div
@@ -25,14 +27,18 @@ function Home() {
         }}
       >
         <Navbar />
-        <FirstScreen/>
+        <FirstScreen />
       </div>
       {/* About Mag About Karwaan  */}
-        <div className="bg-[#B29B7E] h-[500px] text-2xl md:text-4xl xl:text-6xl">About Mag About Karwaan</div>
+      <div className="bg-[#B29B7E] h-[500px] text-2xl md:text-4xl xl:text-6xl">
+        About Mag About Karwaan
+      </div>
       {/* Events EventsCarousel  */}
       <EventsCarousel />
       {/* Speakers  */}
-      <div className="bg-[#B29B7E] h-[500px] text-2xl md:text-4xl xl:text-6xl">Speakers</div>
+      <Speakers />
+      {/* Glimpses of Karwaan  */}
+      <Glimpses />
       {/* Newer sections to be added here (About mag, about KARWAAN, etc) */}
     </>
   );
