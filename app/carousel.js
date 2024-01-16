@@ -1,72 +1,8 @@
 "use client";
-import { React, useState, useEffect } from "react";
-import { Carousel } from "flowbite-react";
-import EventCard from "./oneCard";
-import TwoCards from "./twoCards";
-import OneCard from "./oneCard";
-function EventsCarousel() {
-  // Function to get height and width of screen
-  const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
-  const updateScreenSize = () => {
-    setScreenSize({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  };
-  useEffect(() => {
-    updateScreenSize();
-    window.addEventListener("resize", updateScreenSize);
-    return () => {
-      window.removeEventListener("resize", updateScreenSize);
-    };
-  }, []);
-
-  const [oneCard, setOneCard] = useState(false);
-
-  // Define the update function
-  function oneCardUpdate() {
-    if (screenSize.width < 1.3 * screenSize.height) {
-      setOneCard(true);
-    } else {
-      setOneCard(false);
-    }
-  }
-
-  useEffect(() => {
-    oneCardUpdate();
-  }, [screenSize]);
-  var h = "h-[60vh]";
-  var w = "w-[80vw]";
-  if (screenSize.width / screenSize.height <= 0.55) {
-    w = "w-[80vw]";
-    h = "h-[100vw]";
-  } else if (screenSize.width / screenSize.height <= 0.74) {
-    w = "w-[75vw]";
-    h = "h-[94vw]";
-  } else if (screenSize.width / screenSize.height < 1) {
-    w = "w-[65vw]";
-    h = "h-[82vw]";
-  } else if (screenSize.width / screenSize.height <= 1.3) {
-    w = "w-[75vw]";
-    h = "h-[75vw]";
-  } else if (screenSize.width / screenSize.height <= 1.7) {
-    w = "w-[75vw]";
-    h = "h-[60vw]";
-  } else if (screenSize.width / screenSize.height <= 2.3) {
-    w = "w-[75vw]";
-    h = "h-[35vw]";
-  } else if (screenSize.width / screenSize.height <= 3) {
-    w = "w-[75vw]";
-    h = "h-[40vw]";
-  } else if (screenSize.width / screenSize.height <= 3.5) {
-    w = "w-[75vw]";
-    h = "h-[100vh]";
-  } else {
-    w = "w-[75vw]";
-    h = "h-[100vh]";
-  }
-
-  // Array for Event Details
+import React, { useState } from "react";
+import { CarouselItem } from "./carouselItem";
+export const Carousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const event = [
     {
       id: 1,
@@ -139,42 +75,88 @@ function EventsCarousel() {
         "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     },
   ];
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0) {
+      newIndex = event.length - 1;
+    } else if (newIndex >= event.length) {
+      newIndex = 0;
+    }
 
+    setActiveIndex(newIndex);
+  };
   return (
-    <div>
-      <div className="relative pb-[5%]">
-        <div className=" absolute flex flex-col-reverse -z-10 border-0 border-sky-500 bottom-0 left-0">
-          <img
-            src="/Home/saraswati.png"
-            alt="This is an image"
-            className=" w-auto max-w-[60vw] max-h-[48vh] object-scale-down border-0 border-red-700 "
-          ></img>
-        </div>
-        <div className="mx-[10%] pt-[5%] text-3xl md:text-4xl xl:text-6xl pb-1 sm:pb-4 font-bold italic font-['Open_Sans']">
-          Events
-        </div>
-        <div className="mx-[10%] border-2 border-red-700 flex justify-center items-center ">
-          <div className={`${h}  ${w} `}>
-            <Carousel
-              slide={false}
-              pauseOnHover
-              className={`border-2 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:shadow-[8.0px_16.0px_16.0px_rgba(0,0,0,0.48)] rounded-xl `}
-            >
-              {event.map(({ id, img, name, content }) => (
-                <OneCard
+    <div className="relative pb-[5%]">
+      <div className=" absolute flex flex-col -z-10 border-0 border-sky-500 bottom-0 left-0">
+        <img
+          src="/Home/saraswati.png"
+          alt="This is an image"
+          className=" w-auto max-w-[60vw] max-h-[48vh] object-scale-down border-0 border-red-700 "
+        ></img>
+      </div>
+      <div className="mx-[10%] pt-[5%] text-3xl md:text-4xl xl:text-6xl pb-1 sm:pb-4 font-bold italic font-['Open_Sans']">
+        Events
+      </div>
+      <div className="mx-[10%] border-2 border-red-700 overflow-hidden flex flex-col items-center justify-center">
+        <div
+          className="transition duration-300 shadow-[0_5px_15px_-15px_rgba(0,0,0,0.0.05)] whitespace-nowrap items-center justify-center"
+          style={{ transform: `translate(-${activeIndex * 100}%)` }}
+        >
+          {event.map(({ id, img, name, content }) => {
+            // console.log("id " + id);
+            return (
+                <CarouselItem
                   key={id}
                   img={img}
                   name={name}
                   content={content}
-                  width={screenSize.width}
+                  width={"70%"}
+                  activeIndex={activeIndex}
                 />
-              ))}
-            </Carousel>
+            );
+          })}
+        </div>
+
+        <div className="flex justify-evenly">
+          <button
+            className="bg-none border-none cursor-pointer mt-[20px]"
+            onClick={() => {
+              updateIndex(activeIndex - 1);
+            }}
+          >
+            <span>back</span>{" "}
+          </button>
+          <div className="flex justify-around items-center mt-[20px]">
+            {event.map((event, index) => {
+              return (
+                <button
+                  className="border-none cursor-pointer"
+                  onClick={() => {
+                    updateIndex(index);
+                  }}
+                >
+                  <span
+                    className={`material-symbols-outlined ${
+                      index === activeIndex
+                        ? "text-[#ffffff]"
+                        : "text-[#26343f]"
+                    }`}
+                  >
+                    button
+                  </span>
+                </button>
+              );
+            })}
           </div>
+          <button
+            className="bg-none border-none cursor-pointer mt-[20px]"
+            onClick={() => {
+              updateIndex(activeIndex + 1);
+            }}
+          >
+            <span class="material-symbols-outlined">fwd</span>
+          </button>
         </div>
       </div>
     </div>
   );
-}
-// w-[80vw] sm:w-[70vw] md:w-[65vw] lg:w-[60vw] xl:w-[55vw] 2xl:w-[45vw]
-export default EventsCarousel;
+};

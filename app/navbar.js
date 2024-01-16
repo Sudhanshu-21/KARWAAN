@@ -32,22 +32,22 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="md:fixed md:z-50">
+    <div className="md:fixed z-50 ">
       <div className=" grid grid-cols-12 text-white md:ps-[24px] 2xl:pe-[15px] md:pt-[0px]">
         {/* KARWAAN LOGO */}
         <div className="text-blue nav row-span-2 col-span-2 md:col-span-1">
           <img
-            src="/Home/VNIT_logo-removebg-preview.png"
+            src="/Home\KarwaanLogo.png"
             className="border-0 border-sky-500 "
           ></img>
         </div>
         {/* Navbar links for md and large screens */}
-        <div className="hidden pt-[10px] md:pt-2 lg:pt-[10px] col-end-13 col-span-8 md:px-0 md:visible md:flex md:flex-row-reverse">
+        <div className="hidden pt-[10px] col-end-13 col-span-8 px-0 md:visible md:flex md:flex-row-reverse">
           <ul className=" md:text-sm md:flex lg:text-base xl:text-xl 2xl:text-2xl">
             {links.map(({ id, link, name }) => (
               <li
                 key={id}
-                className="nav-links px-4 cursor-pointer capitalize font-medium  link-underline transition-all  hover:text-[#ca6b6b] hover:scale-105 pe-[10px] lg:pe-[25px] 2xl:pe-[30px]"
+                className="nav-links px-4 cursor-pointer capitalize font-medium  link-underline transition-all  hover:text-[#ca6b6b] hover:scale-105 pe-[20px] 2xl:pe-[15px]"
               >
                 <Link href={link}>{name}</Link>
               </li>
@@ -55,7 +55,7 @@ const Navbar = () => {
           </ul>
         </div>
         {/* Navbar button for small screens */}
-        <div className="col-end-13 col-span-8 flex flex-row-reverse md:hidden ">
+        <div className="col-end-13 col-span-8 flex flex-row-reverse z-10 md:hidden ">
           <button
             type="button"
             aria-controls="mobile-menu"

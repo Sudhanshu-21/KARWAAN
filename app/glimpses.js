@@ -38,13 +38,13 @@ const Glimpses = () => {
   }
 
   return (
-    <div className="flex flex-col items-center pt-[5%] pb-[5%]">
-      <div className={`${gt} font-bold italic font-['Open_Sans']`}>
+    <div className="flex flex-col items-center pt-[5%]">
+      <div className=" text-sky-500 text-3xl md:text-4xl xl:text-6xl pb-1 sm:pb-4 font-bold italic font-['Open_Sans']">
         Glimpses of Karwaan '23
       </div>
-      <div className="rounded-lg border-2 border-black overflow-hidden mt-[5%] w-[70vw] h-[33.25vw] flex shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
-        <img src="/MaithiliThakur.jpg"></img>
-        <img src="/SandeepKhare1.jpg"></img>
+      <div className="max-w-[100vw] max-h-[70vh] flex flex-col sm:flex-row overflow-hidden hover:scale-105">
+        <img src="/MaithiliThakur.jpg" className="max-h-[35vh] sm:max-h-[70vh] w-[100vw]"></img>
+        <img src="/SandeepKhare1.jpg" className="max-h-[35vh] sm:max-h-[70vh]  w-[100vw]"></img>
       </div>
     </div>
   );

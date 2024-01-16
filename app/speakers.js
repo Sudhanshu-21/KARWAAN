@@ -92,14 +92,14 @@ const Speakers = () => {
   ];
 
   return (
-    <div className="bg-[#B29B7E] px-[10%] ">
+    <div className="px-[10%] ">
       <div className={` gap-8  pb-[5%]`}>
         <div
           className={`pt-[5%] pb-[2%] md:pb-[3%] ${st} font-bold italic font-['Open_Sans'] hover:scale-105`}
         >
           Speakers
         </div>
-        <div className="flex flex-wrap justify-around items-center ">
+        <div className="flex flex-wrap justify-around items-start ">
           {speaker.map(({ id, img, name }) => (
             <SpeakerCard
               key={id}
